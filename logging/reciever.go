@@ -26,3 +26,10 @@ func SendToHttpReciever(logMe string){
 	writeBuf := logMe
 	logFile.Write([]byte(writeBuf))
 }
+
+func SendToFtpReciever(logMe string){
+	logFile, _ := os.OpenFile("HoneyPot.log", os.O_CREATE|os.O_APPEND|os.O_RDWR, 0644)
+	defer logFile.Close()
+	writeBuf := logMe
+	logFile.Write([]byte(writeBuf))
+}
